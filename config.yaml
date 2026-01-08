@@ -1,0 +1,34 @@
++# Configuration file for Chatbot Template
+  # This is the ONLY file you need to modify to customize the chatbot!
+
+  project:
+  name: "Customer Support Chatbot"
+      version: "1.0.0"
+      description: "Modular chatbot template - fork and customize by changing this file"
+
+    # MAIN CONFIGURATION: Change these to customize your chatbot
+    dataset:
+  name: "toxic_conversations"  # Options: toxic_conversations, banking77, stackoverflow_snippets, faq_finance, complaint_data
+      url: "https://raw.githubusercontent.com/WillBillySD/datasets/main/toxic_conversations.json"
+      domain: "tech_support"  # Options: tech_support, general, finance, health
+
+    training:
+  epochs: 100
+      batch_size: 32
+      validation_split: 0.2
+
+    rasa:
+  version: "3.0"
+      language: "en"
+      pipeline: "pretrained_embeddings_spacy"
+
+    deployment:
+  framework: "flask"
+      port: 5005
+      debug: false
+
+# Logging
+    logging:
+      level: "INFO"
+          file: "logs/chatbot.log"
+    
